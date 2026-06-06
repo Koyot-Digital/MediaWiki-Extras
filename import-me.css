@@ -1,3 +1,32 @@
+/* Variables */
+
+:root {
+    / * Colors (permanently borrowed from Apple) * /
+    --ui-red:    rgb(255, 56, 60);
+    --ui-orange: rgb(255, 141, 40);
+    --ui-yellow: rgb(255, 141, 40);
+    --ui-green:  rgb(52, 199, 89);
+    --ui-mint:   rgb(0,200,179);
+    --ui-teal:   rgb(0,195,208);
+    --ui-cyan:   rgb(0,192,232);
+    --ui-blue:   rgb(0,136,255);
+    --ui-indigo: rgb(97,85,245);
+    --ui-purple: rgb(203,48,224);
+    --ui-pink:   rgb(255,45,85);
+    --ui-brown:  rgb(172,127,94);
+
+    --ui-gray-A: rgb(142,142,147);
+    --ui-gray-B: rgb(99,99,102);
+    --ui-gray-C: rgb(72,72,74);
+    --ui-gray-D: rgb(58,58,60);
+    --ui-gray-E: rgb(44,44,46);
+    --ui-gray-F: rgb(28,28,30);
+
+    --font-sans: "IBM Plex Sans", sans-serif, system-ui;
+    --font-mono: "Unispace", monospace;
+}
+
+
 /* IBM Plex Sans Variable */
 
 @font-face {
@@ -48,27 +77,4 @@
     font-style: italic;
     font-weight: 700;
     font-display: swap;
-}
-
-:root {
-    /* Colors (perminately borrowed from apple)*/
-    --ui-red:    rgb(255, 56, 60);
-    --ui-orange: rgb(255, 141, 40);
-    --ui-yellow: rgb(255, 141, 40);
-    --ui-green:  rgb(52, 199, 89);
-    --ui-mint:   rgb(0,200,179);
-    --ui-teal:   rgb(0,195,208);
-    --ui-cyan:   rgb(0,192,232);
-    --ui-blue:   rgb(0,136,255);
-    --ui-indigo: rgb(97,85,245);
-    --ui-purple: rgb(203,48,224);
-    --ui-pink:   rgb(255,45,85);
-    --ui-brown:  rgb(172,127,94);
-    
-    --ui-gray-A: rgb(142,142,147);
-    --ui-gray-B: rgb(99,99,102);
-    --ui-gray-C: rgb(72,72,74);
-    --ui-gray-D: rgb(58,58,60);
-    --ui-gray-E: rgb(44,44,46);
-    --ui-gray-F: rgb(28,28,30);
 }
