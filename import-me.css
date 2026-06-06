@@ -1,46 +1,46 @@
 /* Variables */
 
 :root {
-    / * Colors (permanently borrowed from Apple) * /
-    --ui-red:    rgb(255, 56, 60);
-    --ui-orange: rgb(255, 141, 40);
-    --ui-yellow: rgb(255, 141, 40);
-    --ui-green:  rgb(52, 199, 89);
-    --ui-mint:   rgb(0,200,179);
-    --ui-teal:   rgb(0,195,208);
-    --ui-cyan:   rgb(0,192,232);
-    --ui-blue:   rgb(0,136,255);
-    --ui-indigo: rgb(97,85,245);
-    --ui-purple: rgb(203,48,224);
-    --ui-pink:   rgb(255,45,85);
-    --ui-brown:  rgb(172,127,94);
+    /* Colors (permanently borrowed from Apple) */
+    --ui-red:    rgb(255, 056, 060);
+    --ui-orange: rgb(235, 204, 5);
+    --ui-yellow: rgb(255, 141, 040);
+    --ui-green:  rgb(052, 199, 089);
+    --ui-mint:   rgb(000, 200, 179);
+    --ui-teal:   rgb(000, 195, 208);
+    --ui-cyan:   rgb(000, 192, 232);
+    --ui-blue:   rgb(000, 136, 255);
+    --ui-indigo: rgb(097, 085, 245);
+    --ui-purple: rgb(203, 048, 224);
+    --ui-pink:   rgb(255, 045, 085);
+    --ui-brown:  rgb(172, 127, 094);
 
-    --ui-gray-A: rgb(142,142,147);
-    --ui-gray-B: rgb(99,99,102);
-    --ui-gray-C: rgb(72,72,74);
-    --ui-gray-D: rgb(58,58,60);
-    --ui-gray-E: rgb(44,44,46);
-    --ui-gray-F: rgb(28,28,30);
+    --ui-gray-A: rgb(142, 142, 147);
+    --ui-gray-B: rgb(099, 099, 102);
+    --ui-gray-C: rgb(072, 072, 074);
+    --ui-gray-D: rgb(058, 058, 060);
+    --ui-gray-E: rgb(044, 044, 046);
+    --ui-gray-F: rgb(028, 028, 030);
 
     --font-sans: "IBM Plex Sans", sans-serif, system-ui;
     --font-mono: "Unispace", monospace;
 }
 
 
-/* IBM Plex Sans Variable */
+/* IBM Plex Sans VW */
 
 @font-face {
     font-family: "IBM Plex Sans";
-    src: url("./fonts/IBMPlexSans-RG-VW.ttf") format("truetype");
-    font-style: normal;
+    src: url("https://cdn.jsdelivr.net/gh/Koyot-Digital/MediaWiki-Fonts@main/fonts/IBMPlexSans-Italic-VariableFont_wdth,wght.ttf") format("truetype");
+    font-style: italic;
     font-weight: 100 700;
     font-display: swap;
 }
 
 @font-face {
     font-family: "IBM Plex Sans";
-    src: url("./fonts/IBMPlexSans-Italic-VW.ttf") format("truetype");
-    font-style: italic;
+    src: url("https://cdn.jsdelivr.net/gh/Koyot-Digital/MediaWiki-Fonts@main/fonts/IBMPlexSans-VariableFont_wdth,wght.ttf") format("truetype");
+    font-style: normal;
     font-weight: 100 700;
     font-display: swap;
 }
@@ -49,7 +49,7 @@
 
 @font-face {
     font-family: "Unispace";
-    src: url("./fonts/Unispace.Rg.otf") format("opentype");
+    src: url("https://cdn.jsdelivr.net/gh/Koyot-Digital/MediaWiki-Fonts@main/fonts/Unispace.Rg.otf") format("opentype");
     font-style: normal;
     font-weight: 400;
     font-display: swap;
@@ -57,7 +57,7 @@
 
 @font-face {
     font-family: "Unispace";
-    src: url("./fonts/Unispace.It.otf") format("opentype");
+    src: url("https://cdn.jsdelivr.net/gh/Koyot-Digital/MediaWiki-Fonts@main/fonts/Unispace.It.otf") format("opentype");
     font-style: italic;
     font-weight: 400;
     font-display: swap;
@@ -65,7 +65,7 @@
 
 @font-face {
     font-family: "Unispace";
-    src: url("./fonts/Unispace.Bd.otf") format("opentype");
+    src: url("https://cdn.jsdelivr.net/gh/Koyot-Digital/MediaWiki-Fonts@main/fonts/Unispace.Bd.otf") format("opentype");
     font-style: normal;
     font-weight: 700;
     font-display: swap;
@@ -73,7 +73,7 @@
 
 @font-face {
     font-family: "Unispace";
-    src: url("./fonts/Unispace.Bd.It.otf") format("opentype");
+    src: url("https://cdn.jsdelivr.net/gh/Koyot-Digital/MediaWiki-Fonts@main/fonts/Unispace.Bd.It.otf") format("opentype");
     font-style: italic;
     font-weight: 700;
     font-display: swap;
