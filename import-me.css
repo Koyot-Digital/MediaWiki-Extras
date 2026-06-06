@@ -1,0 +1,51 @@
+/* IBM Plex Sans Variable */
+
+@font-face {
+    font-family: "IBM Plex Sans";
+    src: url("./fonts/IBMPlexSans-RG-VW.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 100 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IBM Plex Sans";
+    src: url("./fonts/IBMPlexSans-Italic-VW.ttf") format("truetype");
+    font-style: italic;
+    font-weight: 100 800;
+    font-display: swap;
+}
+
+/* Unispace */
+
+@font-face {
+    font-family: "Unispace";
+    src: url("./fonts/Unispace.Rg.otf") format("opentype");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Unispace";
+    src: url("./fonts/Unispace.It.otf") format("opentype");
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Unispace";
+    src: url("./fonts/Unispace.Bd.otf") format("opentype");
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Unispace";
+    src: url("./fonts/Unispace.Bd.It.otf") format("opentype");
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+}
