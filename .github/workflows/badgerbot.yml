@@ -53,5 +53,5 @@ jobs:
           FILENAME_PREFIX: ${{ vars.FILENAME_PREFIX }}
           FORCE_REUPLOAD: ${{ github.event.inputs.force_reupload == 'true' && '1' || '' }}
           DRY_RUN: ${{ github.event.inputs.dry_run == 'true' && '1' || '' }}
-        run: python badgerbot.py
+        run: python badgerBot.py
         
