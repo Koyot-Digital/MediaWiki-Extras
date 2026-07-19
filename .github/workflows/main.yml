@@ -1,0 +1,56 @@
+name: Upload Roblox badges
+
+on:
+  # Run manually from the Actions tab, with optional overrides.
+  workflow_dispatch:
+    inputs:
+      universe_ids:
+        description: "Comma separated Roblox universe ids (blank uses the repo variable)"
+        required: false
+        default: ""
+      force_reupload:
+        description: "Re-upload even when a file is unchanged"
+        type: boolean
+        required: false
+        default: false
+      dry_run:
+        description: "Log actions without writing to the wiki"
+        type: boolean
+        required: false
+        default: false
+  # Refresh weekly (Monday 06:00 UTC). Adjust or remove as you like.
+  schedule:
+    - cron: "0 6 * * 1"
+
+# Stop overlapping runs from fighting over the same uploads.
+concurrency:
+  group: upload-roblox-badges
+  cancel-in-progress: false
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run badge bot
+        env:
+          WIKI_API_URL: ${{ vars.WIKI_API_URL }}
+          WIKI_BOT_USERNAME: ${{ vars.WIKI_BOT_USERNAME }}
+          WIKI_BOT_PASSWORD: ${{ secrets.BADGERBOT_PASS }}
+          # Input wins when provided, otherwise fall back to a repo variable.
+          ROBLOX_UNIVERSE_IDS: ${{ github.event.inputs.universe_ids != '' && github.event.inputs.universe_ids || vars.ROBLOX_UNIVERSE_IDS }}
+          GALLERY_PAGE: ${{ vars.GALLERY_PAGE }}
+          FILENAME_PREFIX: ${{ vars.FILENAME_PREFIX }}
+          FORCE_REUPLOAD: ${{ github.event.inputs.force_reupload == 'true' && '1' || '' }}
+          DRY_RUN: ${{ github.event.inputs.dry_run == 'true' && '1' || '' }}
+        run: python roblox_badges_bot.py
