@@ -45,7 +45,7 @@ jobs:
       - name: Run badge bot
         env:
           WIKI_API_URL: ${{ vars.WIKI_API_URL }}
-          WIKI_BOT_USERNAME: ${{ vars.WIKI_BOT_USERNAME }}
+          WIKI_BOT_USERNAME: ${{ vars.BADGERBOT_USERNAME }}
           WIKI_BOT_PASSWORD: ${{ secrets.BADGERBOT_PASS }}
           # Input wins when provided, otherwise fall back to a repo variable.
           ROBLOX_UNIVERSE_IDS: ${{ github.event.inputs.universe_ids != '' && github.event.inputs.universe_ids || vars.ROBLOX_UNIVERSE_IDS }}
