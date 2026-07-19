@@ -1,6 +1,3 @@
-'''
-BadgerBot is a bot that grabs Badges every week from roblox.com api.
-'''
 #!/usr/bin/env python3
 """
 Roblox badge bot for MediaWiki.
@@ -201,9 +198,10 @@ class Wiki:
         return found
 
     def upload(self, filename, file_bytes, description, force=False):
+        """Return True if the file ends up uploaded, False otherwise."""
         if self.dry_run:
             log(f"  [dry run] would upload File:{filename}")
-            return
+            return True
         data = {
             "action": "upload",
             "filename": filename,
@@ -214,16 +212,25 @@ class Wiki:
         if force:
             data["ignorewarnings"] = "1"
         result = self._post(data, files={"file": (filename, file_bytes)})
+        if "error" in result:
+            error = result["error"]
+            log(f"  failed File:{filename}: {error.get('code')}: {error.get('info')}")
+            if error.get("code") == "permissiondenied":
+                log("  hint: the bot password is missing the upload grant. On "
+                    "Special:BotPasswords, edit the bot password and tick "
+                    "\"Upload new files\" and \"Upload, replace and move files\".")
+            return False
         upload = result.get("upload", {})
         status = upload.get("result")
         if status == "Success":
             log(f"  uploaded File:{filename}")
-        elif status == "Warning" and not force:
+            return True
+        if status == "Warning" and not force:
             # File exists or is a duplicate; retry once ignoring warnings.
             log(f"  warning on File:{filename} ({list(upload.get('warnings', {}))}); retrying with overwrite")
-            self.upload(filename, file_bytes, description, force=True)
-        else:
-            log(f"  failed File:{filename}: {result}")
+            return self.upload(filename, file_bytes, description, force=True)
+        log(f"  failed File:{filename}: {result}")
+        return False
 
     def edit_page(self, title, text, summary):
         if self.dry_run:
@@ -312,6 +319,7 @@ def main():
     gallery_entries = []
     total_uploaded = 0
     total_skipped = 0
+    total_failed = 0
 
     for universe_id in universe_ids:
         log(f"Fetching badges for universe {universe_id}")
@@ -340,12 +348,15 @@ def main():
 
             if remote_sha1 == local_sha1 and not force:
                 total_skipped += 1
+                gallery_entries.append((filename, badge.get("name", "")))
             else:
                 description = build_description(badge, universe_id)
-                wiki.upload(filename, file_bytes, description, force=force)
-                total_uploaded += 1
+                if wiki.upload(filename, file_bytes, description, force=force):
+                    total_uploaded += 1
+                    gallery_entries.append((filename, badge.get("name", "")))
+                else:
+                    total_failed += 1
 
-            gallery_entries.append((filename, badge.get("name", "")))
             time.sleep(0.2)
 
     if gallery_page and gallery_entries and not dry_run:
@@ -359,8 +370,9 @@ def main():
         wiki.edit_page(gallery_page, "\n".join(lines),
                        "Bot: refresh Roblox badge gallery")
 
-    log(f"Done. Uploaded/updated {total_uploaded}, skipped unchanged {total_skipped}.")
-    return 0
+    log(f"Done. Uploaded/updated {total_uploaded}, skipped unchanged "
+        f"{total_skipped}, failed {total_failed}.")
+    return 1 if total_failed else 0
 
 
 if __name__ == "__main__":
