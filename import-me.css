@@ -2,8 +2,9 @@
 
 :root {
     /* Colors (permanently borrowed from Apple) */
+    /* Leading 0's my beloved*/
     --ui-red:    rgb(255, 056, 060);
-    --ui-orange: rgb(235, 204, 5);
+    --ui-orange: rgb(235, 204, 005);
     --ui-yellow: rgb(255, 141, 040);
     --ui-green:  rgb(052, 199, 089);
     --ui-mint:   rgb(000, 200, 179);
@@ -15,12 +16,12 @@
     --ui-pink:   rgb(255, 045, 085);
     --ui-brown:  rgb(172, 127, 094);
 
-    --ui-gray-A: rgb(142, 142, 147);
+    --ui-gray-A: rgb(142, 142, 147); /* Lightest */
     --ui-gray-B: rgb(099, 099, 102);
     --ui-gray-C: rgb(072, 072, 074);
     --ui-gray-D: rgb(058, 058, 060);
     --ui-gray-E: rgb(044, 044, 046);
-    --ui-gray-F: rgb(028, 028, 030);
+    --ui-gray-F: rgb(028, 028, 030); /* Darkest */
 
     --font-sans: "IBM Plex Sans", sans-serif, system-ui;
     --font-mono: "Unispace", monospace;
